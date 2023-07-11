@@ -1,0 +1,6 @@
+galaxy_info:
+  author: Yuri Kondratev
+  description: Install Vector
+  company: AO Gazprombank
+  license: MIT
+  min_ansible_version: "2.10"
