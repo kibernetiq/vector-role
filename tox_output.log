@@ -1,0 +1,437 @@
+py37-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.2,certifi==2023.5.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.2.0,click==8.1.5,click-help-colors==0.9.1,cookiecutter==2.2.3,cryptography==41.0.2,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-metadata==6.7.0,Jinja2==3.1.2,jmespath==1.0.1,lxml==4.9.3,markdown-it-py==2.2.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==1.1.0,packaging==23.1,paramiko==2.12.0,pathspec==0.11.1,pluggy==1.2.0,pycparser==2.21,Pygments==2.15.1,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.31.0,rich==13.4.2,ruamel.yaml==0.17.32,ruamel.yaml.clib==0.2.7,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.7.1,urllib3==2.0.3,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
+py37-ansible210 run-test-pre: PYTHONHASHSEED='1892062497'
+py37-ansible210 run-test: commands[0] | molecule test -s centos7 --destroy always
+[34mINFO    [0m centos7 scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdependency[0m
+[31mWARNING [0m Skipping, missing the requirements file.
+[31mWARNING [0m Skipping, missing the requirements file.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mlint[0m
+[34mINFO    [0m Lint is disabled.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mcleanup[0m
+[31mWARNING [0m Skipping, cleanup playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdestroy[0m
+[34mINFO    [0m Sanity checks: [32m'podman'[0m
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+[33mchanged: [localhost] => (item={'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True})[0m
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+[33mchanged: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '133361052111.2919', 'results_file': '/root/.ansible_async/133361052111.2919', 'changed': True, 'failed': False, 'item': {'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})[0m
+
+PLAY RECAP *********************************************************************
+[33mlocalhost[0m                  : [32mok=2   [0m [33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32msyntax[0m
+
+playbook: /opt/vector-role/molecule/centos7/converge.yml
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mcreate[0m
+
+PLAY [Create] ******************************************************************
+
+TASK [get podman executable path] **********************************************
+[32mok: [localhost][0m
+
+TASK [save path to executable as fact] *****************************************
+[32mok: [localhost][0m
+
+TASK [Log into a container registry] *******************************************
+[36mskipping: [localhost] => (item="instance registry username: None specified") [0m
+
+TASK [Check presence of custom Dockerfiles] ************************************
+[32mok: [localhost] => (item=Dockerfile: None specified)[0m
+
+TASK [Create Dockerfiles from image names] *************************************
+[36mskipping: [localhost] => (item="Dockerfile: None specified; Image: quay.io/centos/centos:stream8") [0m
+
+TASK [Discover local Podman images] ********************************************
+[32mok: [localhost] => (item=instance)[0m
+
+TASK [Build an Ansible compatible image] ***************************************
+[36mskipping: [localhost] => (item=quay.io/centos/centos:stream8) [0m
+
+TASK [Determine the CMD directives] ********************************************
+[32mok: [localhost] => (item="instance command: None specified")[0m
+
+TASK [Remove possible pre-existing containers] *********************************
+[33mchanged: [localhost][0m
+
+TASK [Discover local podman networks] ******************************************
+[36mskipping: [localhost] => (item=instance: None specified) [0m
+
+TASK [Create podman network dedicated to this scenario] ************************
+[36mskipping: [localhost][0m
+
+TASK [Create molecule instance(s)] *********************************************
+[33mchanged: [localhost] => (item=instance)[0m
+
+TASK [Wait for instance(s) creation to complete] *******************************
+[1;30mFAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).[0m
+[33mchanged: [localhost] => (item=instance)[0m
+
+PLAY RECAP *********************************************************************
+[33mlocalhost[0m                  : [32mok=8   [0m [33mchanged=3   [0m unreachable=0    failed=0    [36mskipped=5   [0m rescued=0    ignored=0
+
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mprepare[0m
+[31mWARNING [0m Skipping, prepare playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mconverge[0m
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[32mok: [instance][0m
+
+TASK [Copy something to test use of synchronize module] ************************
+[33mchanged: [instance][0m
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : include_tasks] *********************************************
+[36mskipping: [instance][0m
+
+TASK [vector-role : include_tasks] *********************************************
+[36mincluded: /opt/vector-role/tasks/rpm.yml for instance[0m
+
+TASK [vector-role : Get Vector distrib] ****************************************
+[33mchanged: [instance][0m
+
+TASK [vector-role : Install Vector packages] ***********************************
+[33mchanged: [instance][0m
+
+RUNNING HANDLER [vector-role : Start Vector service] ***************************
+[31mfatal: [instance]: FAILED! => {"changed": false, "msg": "Service is in unknown state", "status": {}}[0m
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+[31minstance[0m                   : [32mok=5   [0m [33mchanged=3   [0m unreachable=0    [31mfailed=1   [0m [36mskipped=1   [0m rescued=0    ignored=0
+
+[1;31mCRITICAL[0m Ansible return code was [1;36m2[0m, command was: [1m[[0m[32m'ansible-playbook'[0m, [32m'--inventory'[0m, [32m'/root/.cache/molecule/vector-role/centos7/inventory'[0m, [32m'--skip-tags'[0m, [32m'molecule-notest,notest'[0m, [32m'/opt/vector-role/molecule/centos7/converge.yml'[0m[1m][0m
+[31mWARNING [0m An error occurred during the test sequence action: [32m'converge'[0m. Cleaning up.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mcleanup[0m
+[31mWARNING [0m Skipping, cleanup playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdestroy[0m
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+[33mchanged: [localhost] => (item={'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True})[0m
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+[1;30mFAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).[0m
+[1;30mFAILED - RETRYING: Wait for instance(s) deletion to complete (299 retries left).[0m
+[1;30mFAILED - RETRYING: Wait for instance(s) deletion to complete (298 retries left).[0m
+[33mchanged: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '242156163270.4169', 'results_file': '/root/.ansible_async/242156163270.4169', 'changed': True, 'failed': False, 'item': {'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})[0m
+
+PLAY RECAP *********************************************************************
+[33mlocalhost[0m                  : [32mok=2   [0m [33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[34mINFO    [0m Pruning extra files from scenario ephemeral directory
+ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/molecule test -s centos7 --destroy always (exited with code 1)
+py37-ansible30 installed: ansible==3.0.0,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.2,certifi==2023.5.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.2.0,click==8.1.5,click-help-colors==0.9.1,cookiecutter==2.2.3,cryptography==41.0.2,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-metadata==6.7.0,Jinja2==3.1.2,jmespath==1.0.1,lxml==4.9.3,markdown-it-py==2.2.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==1.1.0,packaging==23.1,paramiko==2.12.0,pathspec==0.11.1,pluggy==1.2.0,pycparser==2.21,Pygments==2.15.1,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.31.0,rich==13.4.2,ruamel.yaml==0.17.32,ruamel.yaml.clib==0.2.7,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.7.1,urllib3==2.0.3,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
+py37-ansible30 run-test-pre: PYTHONHASHSEED='1892062497'
+py37-ansible30 run-test: commands[0] | molecule test -s centos7 --destroy always
+[34mINFO    [0m centos7 scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/b984a4/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdependency[0m
+[31mWARNING [0m Skipping, missing the requirements file.
+[31mWARNING [0m Skipping, missing the requirements file.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mlint[0m
+[34mINFO    [0m Lint is disabled.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mcleanup[0m
+[31mWARNING [0m Skipping, cleanup playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdestroy[0m
+[34mINFO    [0m Sanity checks: [32m'podman'[0m
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+[33mchanged: [localhost] => (item={'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True})[0m
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+[33mchanged: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '167483205015.4323', 'results_file': '/root/.ansible_async/167483205015.4323', 'changed': True, 'failed': False, 'item': {'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})[0m
+
+PLAY RECAP *********************************************************************
+[33mlocalhost[0m                  : [32mok=2   [0m [33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32msyntax[0m
+
+playbook: /opt/vector-role/molecule/centos7/converge.yml
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mcreate[0m
+
+PLAY [Create] ******************************************************************
+
+TASK [get podman executable path] **********************************************
+[32mok: [localhost][0m
+
+TASK [save path to executable as fact] *****************************************
+[32mok: [localhost][0m
+
+TASK [Log into a container registry] *******************************************
+[36mskipping: [localhost] => (item="instance registry username: None specified") [0m
+
+TASK [Check presence of custom Dockerfiles] ************************************
+[32mok: [localhost] => (item=Dockerfile: None specified)[0m
+
+TASK [Create Dockerfiles from image names] *************************************
+[36mskipping: [localhost] => (item="Dockerfile: None specified; Image: quay.io/centos/centos:stream8") [0m
+
+TASK [Discover local Podman images] ********************************************
+[32mok: [localhost] => (item=instance)[0m
+
+TASK [Build an Ansible compatible image] ***************************************
+[36mskipping: [localhost] => (item=quay.io/centos/centos:stream8) [0m
+
+TASK [Determine the CMD directives] ********************************************
+[32mok: [localhost] => (item="instance command: None specified")[0m
+
+TASK [Remove possible pre-existing containers] *********************************
+[33mchanged: [localhost][0m
+
+TASK [Discover local podman networks] ******************************************
+[36mskipping: [localhost] => (item=instance: None specified) [0m
+
+TASK [Create podman network dedicated to this scenario] ************************
+[36mskipping: [localhost][0m
+
+TASK [Create molecule instance(s)] *********************************************
+[33mchanged: [localhost] => (item=instance)[0m
+
+TASK [Wait for instance(s) creation to complete] *******************************
+[1;30mFAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).[0m
+[33mchanged: [localhost] => (item=instance)[0m
+
+PLAY RECAP *********************************************************************
+[33mlocalhost[0m                  : [32mok=8   [0m [33mchanged=3   [0m unreachable=0    failed=0    [36mskipped=5   [0m rescued=0    ignored=0
+
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mprepare[0m
+[31mWARNING [0m Skipping, prepare playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mconverge[0m
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[32mok: [instance][0m
+
+TASK [Copy something to test use of synchronize module] ************************
+[33mchanged: [instance][0m
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : include_tasks] *********************************************
+[36mskipping: [instance][0m
+
+TASK [vector-role : include_tasks] *********************************************
+[36mincluded: /opt/vector-role/tasks/rpm.yml for instance[0m
+
+TASK [vector-role : Get Vector distrib] ****************************************
+[33mchanged: [instance][0m
+
+TASK [vector-role : Install Vector packages] ***********************************
+[33mchanged: [instance][0m
+
+RUNNING HANDLER [vector-role : Start Vector service] ***************************
+[31mfatal: [instance]: FAILED! => {"changed": false, "msg": "Service is in unknown state", "status": {}}[0m
+
+NO MORE HOSTS LEFT *************************************************************
+
+PLAY RECAP *********************************************************************
+[31minstance[0m                   : [32mok=5   [0m [33mchanged=3   [0m unreachable=0    [31mfailed=1   [0m [36mskipped=1   [0m rescued=0    ignored=0
+
+[1;31mCRITICAL[0m Ansible return code was [1;36m2[0m, command was: [1m[[0m[32m'ansible-playbook'[0m, [32m'--inventory'[0m, [32m'/root/.cache/molecule/vector-role/centos7/inventory'[0m, [32m'--skip-tags'[0m, [32m'molecule-notest,notest'[0m, [32m'/opt/vector-role/molecule/centos7/converge.yml'[0m[1m][0m
+[31mWARNING [0m An error occurred during the test sequence action: [32m'converge'[0m. Cleaning up.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mcleanup[0m
+[31mWARNING [0m Skipping, cleanup playbook not configured.
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdestroy[0m
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+[33mchanged: [localhost] => (item={'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True})[0m
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+[1;30mFAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).[0m
+[1;30mFAILED - RETRYING: Wait for instance(s) deletion to complete (299 retries left).[0m
+[1;30mFAILED - RETRYING: Wait for instance(s) deletion to complete (298 retries left).[0m
+[33mchanged: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '171121437509.5560', 'results_file': '/root/.ansible_async/171121437509.5560', 'changed': True, 'failed': False, 'item': {'image': 'quay.io/centos/centos:stream8', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})[0m
+
+PLAY RECAP *********************************************************************
+[33mlocalhost[0m                  : [32mok=2   [0m [33mchanged=2   [0m unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[34mINFO    [0m Pruning extra files from scenario ephemeral directory
+ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible30/bin/molecule test -s centos7 --destroy always (exited with code 1)
+py39-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==4.1.2,ansible-core==2.15.1,ansible-lint==5.1.3,arrow==1.2.3,attrs==23.1.0,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,Cerberus==1.3.2,certifi==2023.5.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.2.0,click==8.1.5,click-help-colors==0.9.1,cookiecutter==2.2.3,cryptography==41.0.2,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-resources==5.0.7,Jinja2==3.1.2,jmespath==1.0.1,jsonschema==4.18.3,jsonschema-specifications==2023.6.1,lxml==4.9.3,markdown-it-py==3.0.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==2.0.0,packaging==23.1,paramiko==2.12.0,pathspec==0.11.1,pluggy==1.2.0,pycparser==2.21,Pygments==2.15.1,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,referencing==0.29.1,requests==2.31.0,resolvelib==1.0.1,rich==13.4.2,rpds-py==0.8.10,ruamel.yaml==0.17.32,ruamel.yaml.clib==0.2.7,selinux==0.3.0,six==1.16.0,subprocess-tee==0.4.1,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.7.1,urllib3==2.0.3,wcmatch==8.4.1,yamllint==1.26.3
+py39-ansible210 run-test-pre: PYTHONHASHSEED='1892062497'
+py39-ansible210 run-test: commands[0] | molecule test -s centos7 --destroy always
+[34mINFO    [0m centos7 scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdependency[0m
+[34mINFO    [0m Running from [35m/opt/[0m[95mvector-role[0m : ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[31mWARNING [0m Retrying execution failure [1;36m250[0m of: ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[1;31mERROR   [0m Command returned [1;36m250[0m code:
+the full traceback was:
+
+Traceback [1m([0mmost recent call last[1m)[0m:
+  File [32m"/opt/vector-role/.tox/py39-ansible210/bin/ansible-galaxy"[0m, line [1;36m92[0m, in [1m<[0m[1;95mmodule[0m[39m>[0m
+[39m    mycli = [0m[1;35mgetattr[0m[1;39m([0m[1;35m__import__[0m[1;39m([0m[32m"ansible.cli.%s"[0m[39m % sub, [0m[33mfromlist[0m[39m=[0m[1;39m)[0m[39m, myclass[0m[1;39m)[0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/cli/galaxy.py"[0m[39m, line [0m[1;36m24[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py"[0m[39m, line [0m[1;36m90[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection.concrete_artifact_manager import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py"[0m[39m, line [0m[1;36m30[0m[39m, in <module[0m[1m>[0m
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m
+
+[1m[[0m[1;36m0[0m;31mERROR! Unexpected Exception, this is probably a bug: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m[1m[[0m0m
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible210/bin/molecule", line 8, in <module>
+    sys.exit(main())
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/test.py", line 159, in test
+    base.execute_cmdline_scenarios(scenario_name, args, command_args, ansible_args)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 118, in execute_cmdline_scenarios
+    execute_scenario(scenario)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 160, in execute_scenario
+    execute_subcommand(scenario.config, action)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 149, in execute_subcommand
+    return command(config).execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/logger.py", line 188, in wrapper
+    rt = func(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/dependency.py", line 74, in execute
+    self._config.dependency.execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/__init__.py", line 76, in execute
+    invoker.execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/base.py", line 120, in execute
+    super().execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/dependency/base.py", line 92, in execute
+    self._config.runtime.require_collection(name, version)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible_compat/runtime.py", line 697, in require_collection
+    self.install_collection(f"{name}:>={version}" if version else name)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible_compat/runtime.py", line 437, in install_collection
+    raise InvalidPrerequisiteError(msg)
+ansible_compat.errors.InvalidPrerequisiteError: Command returned 250 code:
+the full traceback was:
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible210/bin/ansible-galaxy", line 92, in <module>
+    mycli = getattr(__import__("ansible.cli.%s" % sub, fromlist=[myclass]), myclass)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/cli/galaxy.py", line 24, in <module>
+    from ansible.galaxy.collection import (
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py", line 90, in <module>
+    from ansible.galaxy.collection.concrete_artifact_manager import (
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py", line 30, in <module>
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/api.py)
+
+[31mERROR! Unexpected Exception, this is probably a bug: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible/galaxy/api.py)[0m
+
+ERROR: InvocationError for command /opt/vector-role/.tox/py39-ansible210/bin/molecule test -s centos7 --destroy always (exited with code 1)
+py39-ansible30 installed: ansible==3.0.0,ansible-base==2.10.17,ansible-compat==4.1.2,ansible-core==2.15.1,ansible-lint==5.1.3,arrow==1.2.3,attrs==23.1.0,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,Cerberus==1.3.2,certifi==2023.5.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.2.0,click==8.1.5,click-help-colors==0.9.1,cookiecutter==2.2.3,cryptography==41.0.2,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-resources==5.0.7,Jinja2==3.1.2,jmespath==1.0.1,jsonschema==4.18.3,jsonschema-specifications==2023.6.1,lxml==4.9.3,markdown-it-py==3.0.0,MarkupSafe==2.1.3,mdurl==0.1.2,molecule==3.5.2,molecule-podman==2.0.0,packaging==23.1,paramiko==2.12.0,pathspec==0.11.1,pluggy==1.2.0,pycparser==2.21,Pygments==2.15.1,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,referencing==0.29.1,requests==2.31.0,resolvelib==1.0.1,rich==13.4.2,rpds-py==0.8.10,ruamel.yaml==0.17.32,ruamel.yaml.clib==0.2.7,selinux==0.3.0,six==1.16.0,subprocess-tee==0.4.1,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.7.1,urllib3==2.0.3,wcmatch==8.4.1,yamllint==1.26.3
+py39-ansible30 run-test-pre: PYTHONHASHSEED='1892062497'
+py39-ansible30 run-test: commands[0] | molecule test -s centos7 --destroy always
+[34mINFO    [0m centos7 scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+[34mINFO    [0m Performing prerun[33m...[0m
+[34mINFO    [0m Set [33mANSIBLE_LIBRARY[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mmodules[0m:[35m/root/.ansible/plugins/[0m[95mmodules[0m:[35m/usr/share/ansible/plugins/[0m[95mmodules[0m
+[34mINFO    [0m Set [33mANSIBLE_COLLECTIONS_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mcollections[0m:[35m/root/.ansible/[0m[95mcollections[0m:[35m/usr/share/ansible/[0m[95mcollections[0m
+[34mINFO    [0m Set [33mANSIBLE_ROLES_PATH[0m=[35m/root/.cache/ansible-compat/f5bcd7/[0m[95mroles[0m:[35m/root/.ansible/[0m[95mroles[0m:[35m/usr/share/ansible/[0m[95mroles[0m:[35m/etc/ansible/[0m[95mroles[0m
+[34mINFO    [0m [2;36mRunning [0m[2;32mcentos7[0m[2;36m > [0m[2;32mdependency[0m
+[34mINFO    [0m Running from [35m/opt/[0m[95mvector-role[0m : ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[31mWARNING [0m Retrying execution failure [1;36m250[0m of: ansible-galaxy collection install -vvv containers.podman:>=[1;36m1.7[0m.[1;36m0[0m
+[1;31mERROR   [0m Command returned [1;36m250[0m code:
+the full traceback was:
+
+Traceback [1m([0mmost recent call last[1m)[0m:
+  File [32m"/opt/vector-role/.tox/py39-ansible30/bin/ansible-galaxy"[0m, line [1;36m92[0m, in [1m<[0m[1;95mmodule[0m[39m>[0m
+[39m    mycli = [0m[1;35mgetattr[0m[1;39m([0m[1;35m__import__[0m[1;39m([0m[32m"ansible.cli.%s"[0m[39m % sub, [0m[33mfromlist[0m[39m=[0m[1;39m)[0m[39m, myclass[0m[1;39m)[0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/cli/galaxy.py"[0m[39m, line [0m[1;36m24[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py"[0m[39m, line [0m[1;36m90[0m[39m, in <module>[0m
+[39m    from ansible.galaxy.collection.concrete_artifact_manager import [0m[1;39m([0m
+[39m  File [0m[32m"/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py"[0m[39m, line [0m[1;36m30[0m[39m, in <module[0m[1m>[0m
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m
+
+[1m[[0m[1;36m0[0m;31mERROR! Unexpected Exception, this is probably a bug: cannot import name [32m'should_retry_error'[0m from [32m'ansible.galaxy.api'[0m [1m([0m[35m/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/[0m[95mapi.py[0m[1m)[0m[1m[[0m0m
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible30/bin/molecule", line 8, in <module>
+    sys.exit(main())
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/decorators.py", line 33, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/test.py", line 159, in test
+    base.execute_cmdline_scenarios(scenario_name, args, command_args, ansible_args)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 118, in execute_cmdline_scenarios
+    execute_scenario(scenario)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 160, in execute_scenario
+    execute_subcommand(scenario.config, action)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 149, in execute_subcommand
+    return command(config).execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/logger.py", line 188, in wrapper
+    rt = func(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/dependency.py", line 74, in execute
+    self._config.dependency.execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/__init__.py", line 76, in execute
+    invoker.execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/dependency/ansible_galaxy/base.py", line 120, in execute
+    super().execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/dependency/base.py", line 92, in execute
+    self._config.runtime.require_collection(name, version)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible_compat/runtime.py", line 697, in require_collection
+    self.install_collection(f"{name}:>={version}" if version else name)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible_compat/runtime.py", line 437, in install_collection
+    raise InvalidPrerequisiteError(msg)
+ansible_compat.errors.InvalidPrerequisiteError: Command returned 250 code:
+the full traceback was:
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible30/bin/ansible-galaxy", line 92, in <module>
+    mycli = getattr(__import__("ansible.cli.%s" % sub, fromlist=[myclass]), myclass)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/cli/galaxy.py", line 24, in <module>
+    from ansible.galaxy.collection import (
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/__init__.py", line 90, in <module>
+    from ansible.galaxy.collection.concrete_artifact_manager import (
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py", line 30, in <module>
+    from ansible.galaxy.api import should_retry_error
+ImportError: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/api.py)
+
+[31mERROR! Unexpected Exception, this is probably a bug: cannot import name 'should_retry_error' from 'ansible.galaxy.api' (/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible/galaxy/api.py)[0m
+
+ERROR: InvocationError for command /opt/vector-role/.tox/py39-ansible30/bin/molecule test -s centos7 --destroy always (exited with code 1)
+___________________________________ summary ____________________________________
+ERROR:   py37-ansible210: commands failed
+ERROR:   py37-ansible30: commands failed
+ERROR:   py39-ansible210: commands failed
+ERROR:   py39-ansible30: commands failed

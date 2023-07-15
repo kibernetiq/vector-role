@@ -1,6 +1,8 @@
 galaxy_info:
+  role_name: vector_role
+  namespace: yura
   author: Yuri Kondratev
   description: Install Vector
   company: AO Gazprombank
   license: MIT
-  min_ansible_version: "2.10"
+  min_ansible_version: 2.1
